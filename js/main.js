@@ -2,6 +2,11 @@ const header = document.querySelector("[data-header]");
 const nav = document.querySelector("[data-nav]");
 const toggle = document.querySelector("[data-nav-toggle]");
 const year = document.querySelector("[data-year]");
+const musicToggle = document.querySelector("[data-music-toggle]");
+let audioContext;
+let musicNodes = [];
+let musicTimer;
+let isMusicPlaying = false;
 
 if (year) {
   year.textContent = new Date().getFullYear();
@@ -35,6 +40,82 @@ document.querySelectorAll("form").forEach((form) => {
     form.reset();
   });
 });
+
+function makeGain(value) {
+  const gain = audioContext.createGain();
+  gain.gain.value = value;
+  return gain;
+}
+
+function startTone(frequency, type, gainValue) {
+  const osc = audioContext.createOscillator();
+  const gain = makeGain(0);
+
+  osc.type = type;
+  osc.frequency.value = frequency;
+  osc.connect(gain).connect(audioContext.destination);
+  osc.start();
+  gain.gain.linearRampToValueAtTime(gainValue, audioContext.currentTime + 1.6);
+  musicNodes.push({ osc, gain });
+}
+
+function playBell(frequency, delay = 0) {
+  const startAt = audioContext.currentTime + delay;
+  const osc = audioContext.createOscillator();
+  const gain = makeGain(0);
+
+  osc.type = "sine";
+  osc.frequency.setValueAtTime(frequency, startAt);
+  gain.gain.setValueAtTime(0, startAt);
+  gain.gain.linearRampToValueAtTime(0.045, startAt + 0.03);
+  gain.gain.exponentialRampToValueAtTime(0.001, startAt + 2.6);
+  osc.connect(gain).connect(audioContext.destination);
+  osc.start(startAt);
+  osc.stop(startAt + 2.8);
+}
+
+function startBackgroundMusic() {
+  audioContext = audioContext || new AudioContext();
+  audioContext.resume();
+
+  startTone(146.83, "sine", 0.018);
+  startTone(220.0, "triangle", 0.012);
+  startTone(293.66, "sine", 0.009);
+
+  const pattern = [440, 493.88, 392, 329.63, 440, 293.66];
+  let step = 0;
+  playBell(pattern[step]);
+  musicTimer = window.setInterval(() => {
+    step = (step + 1) % pattern.length;
+    playBell(pattern[step]);
+    playBell(pattern[(step + 2) % pattern.length] / 2, 0.35);
+  }, 3600);
+}
+
+function stopBackgroundMusic() {
+  window.clearInterval(musicTimer);
+  musicNodes.forEach(({ osc, gain }) => {
+    gain.gain.cancelScheduledValues(audioContext.currentTime);
+    gain.gain.linearRampToValueAtTime(0.0001, audioContext.currentTime + 0.6);
+    osc.stop(audioContext.currentTime + 0.8);
+  });
+  musicNodes = [];
+}
+
+if (musicToggle) {
+  musicToggle.addEventListener("click", () => {
+    isMusicPlaying = !isMusicPlaying;
+    musicToggle.setAttribute("aria-pressed", String(isMusicPlaying));
+    musicToggle.setAttribute("aria-label", isMusicPlaying ? "Matikan backsound" : "Nyalakan backsound");
+    musicToggle.querySelector(".music-toggle__text").textContent = isMusicPlaying ? "Playing" : "Music";
+
+    if (isMusicPlaying) {
+      startBackgroundMusic();
+    } else {
+      stopBackgroundMusic();
+    }
+  });
+}
 
 window.addEventListener("scroll", updateHeader, { passive: true });
 updateHeader();
