@@ -619,8 +619,25 @@ h3 {
 }
 
 .total-section {
+  margin-top: 24px;
+  padding: clamp(26px, 4vw, 38px);
+  border-radius: 14px;
   background: var(--green-950);
   color: var(--white);
+  box-shadow: 0 22px 60px rgba(7, 33, 27, 0.14);
+}
+
+.fees .total-section .section-heading {
+  margin-bottom: 22px;
+}
+
+.fees .total-section h2 {
+  margin-bottom: 0;
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+}
+
+.fees .total-section .section-kicker {
+  color: var(--gold-soft);
 }
 
 .total-table {
