@@ -598,8 +598,8 @@ h3 {
   padding: 104px clamp(20px, 6vw, 88px);
   color: var(--white);
   background:
-    linear-gradient(rgba(11, 20, 16, 0.76), rgba(11, 20, 16, 0.76)),
-    url("../assets/hero-campus.png") center / cover fixed;
+    linear-gradient(rgba(8, 18, 15, 0.72), rgba(8, 18, 15, 0.78)),
+    url("../assets/advantages-activities.png") center / cover fixed;
   overflow: hidden;
 }
 
