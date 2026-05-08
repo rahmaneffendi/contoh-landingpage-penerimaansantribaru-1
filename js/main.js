@@ -2,7 +2,6 @@ const header = document.querySelector("[data-header]");
 const nav = document.querySelector("[data-nav]");
 const toggle = document.querySelector("[data-nav-toggle]");
 const year = document.querySelector("[data-year]");
-const musicToggle = document.querySelector("[data-music-toggle]");
 let audioContext;
 let musicNodes = [];
 let musicTimer;
@@ -102,20 +101,8 @@ function stopBackgroundMusic() {
   musicNodes = [];
 }
 
-if (musicToggle) {
-  musicToggle.addEventListener("click", () => {
-    isMusicPlaying = !isMusicPlaying;
-    musicToggle.setAttribute("aria-pressed", String(isMusicPlaying));
-    musicToggle.setAttribute("aria-label", isMusicPlaying ? "Matikan backsound" : "Nyalakan backsound");
-    musicToggle.querySelector(".music-toggle__text").textContent = isMusicPlaying ? "Playing" : "Music";
-
-    if (isMusicPlaying) {
-      startBackgroundMusic();
-    } else {
-      stopBackgroundMusic();
-    }
-  });
-}
+// Background music is intentionally kept disabled for now.
+// To restore it later, add a button with [data-music-toggle] and wire this block back.
 
 window.addEventListener("scroll", updateHeader, { passive: true });
 updateHeader();
