@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Tes lisan Al-Quran">
+  <path d="M11 15c12-5 19-1 21 3 2-4 9-8 21-3v36c-12-5-19-1-21 3-2-4-9-8-21-3V15Z" fill="#eef5f1" stroke="#1c7559" stroke-width="3"/>
+  <path d="M32 18v36M18 27h8M18 36h8M38 27h8M38 36h8" stroke="#0b3b31" stroke-width="3" stroke-linecap="round"/>
+  <path d="M32 11c4 1 7 4 8 8-4-2-8-2-12 0 1-4 0-6 4-8Z" fill="#d4a73b"/>
+</svg>

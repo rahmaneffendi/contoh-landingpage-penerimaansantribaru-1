@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-label="Animasi profil kampus">
+  <defs>
+    <linearGradient id="sky" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#dff4ff"/>
+      <stop offset="1" stop-color="#fff7d8"/>
+    </linearGradient>
+    <linearGradient id="grass" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#1c7559"/>
+      <stop offset="1" stop-color="#0b3b31"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="540" fill="url(#sky)"/>
+  <circle cx="780" cy="90" r="48" fill="#d4a73b"/>
+  <g opacity=".5">
+    <ellipse cx="125" cy="92" rx="78" ry="22" fill="#fff"/>
+    <ellipse cx="195" cy="112" rx="96" ry="24" fill="#fff"/>
+    <animateTransform attributeName="transform" type="translate" values="-70 0;70 0;-70 0" dur="12s" repeatCount="indefinite"/>
+  </g>
+  <rect y="368" width="960" height="172" fill="url(#grass)"/>
+  <path d="M250 200h460v178H250z" fill="#fffdf7" stroke="#d6e3dc" stroke-width="4"/>
+  <path d="M220 210h520l-70-86H290l-70 86Z" fill="#0b3b31"/>
+  <path d="M405 200c0-44 34-80 75-80s75 36 75 80" fill="#f4df9d"/>
+  <rect x="432" y="250" width="96" height="128" rx="48" fill="#12513f"/>
+  <rect x="285" y="246" width="72" height="82" rx="36" fill="#eef5f1" stroke="#1c7559" stroke-width="4"/>
+  <rect x="603" y="246" width="72" height="82" rx="36" fill="#eef5f1" stroke="#1c7559" stroke-width="4"/>
+  <path d="M0 446c195-44 339-42 510 10 165 50 299 45 450-11v95H0z" fill="#f4df9d" opacity=".85"/>
+  <g>
+    <circle cx="170" cy="379" r="24" fill="#1b2f2a"/>
+    <path d="M148 408h44l18 70h-80l18-70Z" fill="#ffffff"/>
+    <path d="M150 430h40" stroke="#d4a73b" stroke-width="8"/>
+    <animateTransform attributeName="transform" type="translate" values="-120 0;1040 0" dur="9s" repeatCount="indefinite"/>
+  </g>
+  <g>
+    <circle cx="610" cy="387" r="22" fill="#1b2f2a"/>
+    <path d="M590 414h42l16 64h-74l16-64Z" fill="#0b3b31"/>
+    <path d="M590 432h42" stroke="#d4a73b" stroke-width="7"/>
+    <animateTransform attributeName="transform" type="translate" values="1040 0;-760 0" dur="11s" repeatCount="indefinite"/>
+  </g>
+  <rect x="34" y="32" width="220" height="50" rx="8" fill="rgba(11,59,49,.82)"/>
+  <text x="58" y="65" fill="#fff" font-family="Arial, sans-serif" font-size="22" font-weight="800">Profil Pesantren</text>
+</svg>
