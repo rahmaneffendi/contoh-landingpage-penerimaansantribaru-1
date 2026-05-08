@@ -337,8 +337,7 @@ h3 {
 }
 
 .test-grid article,
-.fee-card,
-.advantage-grid article {
+.fee-card {
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--white);
@@ -471,28 +470,79 @@ h3 {
   box-shadow: var(--shadow);
 }
 
+.advantages {
+  position: relative;
+  padding: 104px clamp(20px, 6vw, 88px);
+  color: var(--white);
+  background:
+    linear-gradient(rgba(11, 20, 16, 0.76), rgba(11, 20, 16, 0.76)),
+    url("../assets/hero-campus.png") center / cover fixed;
+  overflow: hidden;
+}
+
+.advantages .section-heading {
+  max-width: 1100px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.advantages h2 {
+  margin-bottom: 46px;
+  color: var(--white);
+  font-size: clamp(2rem, 4.5vw, 3.1rem);
+}
+
 .advantage-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  max-width: 1280px;
+  margin-inline: auto;
 }
 
 .advantage-grid article {
-  padding: 26px;
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr);
+  gap: 18px;
+  min-height: 142px;
+  padding: 24px;
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  background: rgba(87, 126, 111, 0.72);
+  box-shadow: 0 20px 46px rgba(0, 0, 0, 0.16);
+  backdrop-filter: blur(12px);
 }
 
-.advantage-grid b {
+.advantage-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 42px;
-  height: 42px;
-  margin-bottom: 20px;
-  border-radius: 50%;
-  color: var(--green-950);
-  background: var(--gold);
+  width: 48px;
+  height: 48px;
+  color: #4ee01c;
+}
+
+.advantage-icon svg {
+  width: 44px;
+  height: 44px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.advantage-grid h3 {
+  margin: 0 0 8px;
+  color: var(--white);
+  font-size: 1.24rem;
+  line-height: 1.18;
 }
 
 .advantage-grid p {
-  color: var(--muted);
+  margin: 0;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 0.96rem;
+  line-height: 1.25;
 }
 
 .contact {
@@ -643,6 +693,10 @@ textarea {
   .contact-form {
     grid-template-columns: 1fr;
   }
+
+  .advantages {
+    background-attachment: scroll;
+  }
 }
 
 @media (max-width: 640px) {
@@ -664,6 +718,25 @@ textarea {
   .advantage-grid,
   .site-footer {
     grid-template-columns: 1fr;
+  }
+
+  .advantages {
+    padding-block: 76px;
+  }
+
+  .advantage-grid article {
+    grid-template-columns: 44px minmax(0, 1fr);
+    padding: 20px;
+  }
+
+  .advantage-icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .advantage-icon svg {
+    width: 38px;
+    height: 38px;
   }
 
   .total-table div,

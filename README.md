@@ -1,6 +1,6 @@
 # Remake Landing Page Penerimaan Santri Baru
 
-Landing page statis hasil remake dari referensi PPSB PM UQI. Kode dan aset visual dibuat ulang secara orisinal, dengan konten informasi mengikuti halaman referensi publik.
+Landing page statis untuk PPSB Pondok Pesantren Modern Lazwan. Kode dan aset visual dibuat ulang secara orisinal, dengan konten informasi mengikuti halaman referensi publik.
 
 ## Struktur
 
